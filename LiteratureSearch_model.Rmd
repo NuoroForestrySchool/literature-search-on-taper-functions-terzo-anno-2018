@@ -1,0 +1,21 @@
+---
+title: "Taper functios literature"
+output: html_notebook
+---
+
+# Literature search
+
+## ArticleID:
+PubblicationYear:
+Authors:
+Title:
+Source:
+URL:
+
+Function
+Species:
+Code
+```{r}
+plot(cars)
+```
+
