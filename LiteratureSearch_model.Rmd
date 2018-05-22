@@ -1,6 +1,8 @@
 ---
 title: "Taper functios literature"
-output: html_notebook
+output:
+  html_document:
+    df_print: paged
 ---
 
 # Literature search
@@ -66,7 +68,9 @@ URL:  https://doi.org/10.1016/j.anres.2016.04.005.
 
 Function
 Species: Tectona grandis L.f.
-Code : 2016WarnerEtAl.png
+
+Code : 
+![cod](2016WarnerEtAl.png)
 ```{r}
 plot(cars)
 ```
