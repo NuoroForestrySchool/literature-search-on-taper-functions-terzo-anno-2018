@@ -19,7 +19,10 @@ Code
 plot(cars)
 ```
 
+
 PROVA CHIARA
+
+=======
 
 ## ArticleID:
 PubblicationYear:
@@ -47,4 +50,8 @@ Species: Tectona grandis L.f.
 Code : 2016WarnerEtAl
 ```{r}
 plot(cars)
+
 ```
+=======
+```
+
