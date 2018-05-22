@@ -19,6 +19,11 @@ Code
 plot(cars)
 ```
 
+
+PROVA CHIARA
+
+=======
+
 ## ArticleID:
 PubblicationYear:
 Authors:Scolforo, H.F., McTague, J.P., Raimundo, M.R., Weiskittel, A., Carrero, O., Scolforo, J.R.S.
@@ -45,4 +50,8 @@ Species: Tectona grandis L.f.
 Code : 2016WarnerEtAl
 ```{r}
 plot(cars)
+
 ```
+=======
+```
+
