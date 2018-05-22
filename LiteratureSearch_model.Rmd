@@ -19,3 +19,21 @@ Code
 plot(cars)
 ```
 
+
+## ArticleID:
+PubblicationYear: 2016
+Authors: Andrew J. Warner, Monton Jamroenprucksa, Ladawan Puangchit,
+Title: Development and evaluation of teak (Tectona grandis L.f.) taper equations in northern Thailand,
+Source: Agriculture and Natural Resources, Volume 50, Issue 5, Pages 362-367, ISSN 2452-316X,
+URL: https://doi.org/10.1016/j.anres.2016.04.005.
+(http://www.sciencedirect.com/science/article/pii/S2452316X16302459)
+
+Function
+Species: Tectona grandis L.f.
+Code : 2016WarnerEtAl
+```{r}
+plot(cars)
+```
+
+
+
