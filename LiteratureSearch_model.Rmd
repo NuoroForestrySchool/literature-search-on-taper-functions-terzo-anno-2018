@@ -75,8 +75,6 @@ Code :
 plot(cars)
 ```
 
-nuovo Angelo
-
 ## ArticleID:
 PubblicationYear:2016
 Authors:Xiaolu Tang,César Pérez-Cruzado,Lutz Fehrmann,Juan Gabriel Álvarez-González,Yuanchang Lu,and Christoph Kleinn,
