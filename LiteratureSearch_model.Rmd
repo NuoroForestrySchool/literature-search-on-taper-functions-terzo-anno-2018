@@ -21,13 +21,10 @@ Code
 plot(cars)
 ```
 
-
-PROVA CHIARA prova matteo
-
 =======
 
 ## ArticleID:
-PubblicationYear:
+PubblicationYear:2017
 Authors:Scolforo, H.F., McTague, J.P., Raimundo, M.R., Weiskittel, A., Carrero, O., Scolforo, J.R.S.
 Title: Comparison of taper functions applied to eucalypts of varying genetics in Brazil: Application and evaluation of the penalized mixed spline approach
 Source:(2018) Canadian Journal of Forest Research, 48 (5), pp. 568-580, DOI: 10.1139/cjfr-2017-0366
@@ -40,26 +37,8 @@ plot(cars)
 ```
 
 ## ArticleID:
-PubblicationYear: 2016
-Authors: Andrew J. Warner, Monton Jamroenprucksa, Ladawan Puangchit,
-Title: Development and evaluation of teak (Tectona grandis L.f.) taper equations in northern Thailand,
-Source: Agriculture and Natural Resources, Volume 50, Issue 5, Pages 362-367, ISSN 2452-316X,
-URL: https://doi.org/10.1016/j.anres.2016.04.005.
-(http://www.sciencedirect.com/science/article/pii/S2452316X16302459)
-
-Function
-Species: Tectona grandis L.f.
-Code : 2016WarnerEtAl.png https://ibb.co/dnGro8
-```{r}
-plot(cars)
-
-```
-
-## ArticleID:
 PubblicationYear:2016
-<<<<<<< HEAD
-Authors:Xiaolu Tang,César Pérez-Cruzado,Lutz Fehrmann,Juan Gabriel Álvarez-González,Yuanchang Lu,Christoph Kleinn,
-=======
+
 Authors: Andrew J. Warner, Monton Jamroenprucksa, Ladawan Puangchit,
 Title: Development and evaluation of teak (Tectona grandis L.f.) taper equations in northern Thailand,
 Source: Agriculture and Natural Resources, Volume 50, Issue 5, Pages 362-367, ISSN 2452-316X,
@@ -105,6 +84,30 @@ Code: ![codice](2016TangEtAl.png)
 ```{r}
 plot(cars)
 ```
+
+
+
+## ArticleID:
+PubblicationYear: 2017
+Authors:José Javier Corral-Rivas, Daniel Jose Vega-Nieva, Roque Rodríguez-Soalleiro, Carlos Antonio López-Sánchez, Christian Wehenkel, Benedicto Vargas-Larreta, Juan Gabriel Álvarez-González and Ana Daría Ruiz-González.
+
+Title: "Compatible System for Predicting Total and Merchantable Stem Volume over and under Bark, Branch Volume and Whole-Tree Volume of Pine Species""
+
+Source:Forests 2017, Volume 8, Issue 11, 417, MDPI AG
+URL:https://doi.org/10.3390/f8110417
+
+Function
+
+Species: Pinus cooperi, Pinus durangensis
+Code: ![codice](2017Corral-RivasEtAlOb.png)
+      ![codice](2017Corral-RivasEtAlUb.png)
+
+
+```{r}
+plot(cars)
+```
+
+
 
 
 
