@@ -1,0 +1,12 @@
+---
+title: "R Notebook"
+output: 
+  - pdf_document
+---
+
+```{r}
+x <- knitr::kable(head(mtcars), "latex")
+column_spec(x, 3:4, width = c("1cm","4cm"), bold = TRUE, italic = TRUE)
+```
+
+

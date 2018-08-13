@@ -6,7 +6,7 @@ output: pdf_document
 ---
 
    
-```{r open DBs, echo=FALSE, results='hide', message=FALSE}
+```{r open DBs, echo=FALSE, results='hide'}
 # https://docs.google.com/spreadsheets/d/1Z6LpZgBogxYrTimiBjFcCMam7gp8-YNeH2sdAiNf8i4/edit#gid=0 
 library(tidyverse)
 library(googlesheets)
@@ -46,23 +46,22 @@ nart <- length(unique(sbib$ArticleID))
 for(i in 1) {
   zid <- sbib$value[sbib$ArticleID==i &
                     sbib$field=="Zotero.ID"]
-  cat(paste0("\n\n\n## Article ID: ", i, " === ",
-             cite(zid, zbib ), "\n \n"))
-  cat(paste0("**", zbib$title[[zid]], "**"))
+#  cat(paste0("\n\n\n## Article ID: ", i,
+#             "                  ___", cite(zid, zbib ),"___"))
+#  cat("\n*** *", zbib$title[[zid]], "* ***")
   sbib %>%
     as.tibble() %>%
     filter(ArticleID == i) %>%
     select(field, value) %>%
     filter(!field %in% 
              c("## ArticleID", "Zotero.ID")) %>%
-#    xtable(caption = zbib$title[[zid]],
-    xtable(align = c("p{0cm}" ,"p{2.5cm}" , "p{11cm}" )) %>%
+    xtable(align = c("p{0cm}" ,"p{3cm}" , "p{8cm}" )) %>%
 #    kable("latex", booktabs = T) %>%
 #    column_spec(1:2, width = "6cm") %>%
 #    kable_styling(latex_options="scale_down") %>%
 #    kable_styling(full_width = F) %>%
 #    column_spec(1, width = c("2cm")) %>%
-    print(comment = F, include.rownames = F, include.colnames =F, caption.placement = 'top')
+    print(include.rownames=FALSE)
 #    print()
 }
 ```
@@ -70,7 +69,7 @@ for(i in 1) {
 
 # References
 ```{r results='asis', echo=FALSE}
-PrintBibliography(zbib, .opts = list(bib.style = "authoryear", style = "markdown"))
+#PrintBibliography(zbib, .opts = list(bib.style = "authoryear", style = "markdown"))
 # rmarkdown::render("AnalysisOfTaperFunctionsStrutures.Rmd")
 
 ```
