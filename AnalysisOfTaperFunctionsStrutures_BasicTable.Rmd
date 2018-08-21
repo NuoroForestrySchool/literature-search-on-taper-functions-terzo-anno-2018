@@ -4,11 +4,16 @@ author: "prof. Roberto Scotti ^[NuoroForestrySchool - scotti@uniss.it]"
 date: "`r format(Sys.time(), '%d %b %Y')`"
 output: 
   pdf_document:
-    latex_engine: xelatex
-    citation_package: biblatex
+    keep_tex: yes
+    latex_engine: pdflatex
+    citation_package: natbib
+fig_caption: yes
+header-includes:
+   - \usepackage[labelformat=empty]{caption}
 ---
 
 ```{r setup, include = FALSE, cache = FALSE}
+#library(rmarkdown)
 library(RefManageR)
 BibOptions(cite.style = "authoryear", bib.style = "authoryear",
            no.print.fields = c("url"), check.entries = FALSE, 
@@ -35,43 +40,54 @@ sbib <-
 
 # Introduction
 
-## 2018 Forest Inventory course - Collective students' work
+## 2018 Forest Inventory course - First results of the collective assignement  
+
 Students, as homework, were asked to search for scientific papers presenting 'taper functions' and to compile a collective Rmarkdown document shared using GIT.  
 Rearranging their work, this document lists their findings.  
 
-# Results of students' searches
+# Analysed articles
 
 ```{r results='asis', echo=FALSE}
-#library(knitr)
-#library(kableExtra)
-library(xtable)
+
 eq.dir <- "Equations"
 nart <- length(unique(sbib$ArticleID))
 
+sbib <- sbib %>%
+  as.tibble()
+
 for(i in 1:nart) {
 # for(i in 1) {
-  zid <- sbib$value[sbib$ArticleID==i &
-                    sbib$field=="Zotero.ID"]
-  tit1 <- paste0("   Article ID: ", i, " =:= ", 
-                 Cite(zbib, zid,
-                      .opts = list(hyperlink = F )))
-  tit2 <- paste0("**", zbib$title[[zid]], "**")
-  sbib %>%
-    as.tibble() %>%
+  t0 <- sbib %>%
     filter(ArticleID == i) %>%
-    select(field, value) %>%
+    select(field, value)
+  zid <- t0 %>% filter(field == "Zotero.ID") %>% select(value)%>% as.character()
+  t0 <- t0 %>%
     filter(!field %in% 
              c("## ArticleID", "Zotero.ID")) %>%
-    xtable(caption = c(tit1, tit2), 
-           align = c("p{0cm}" ,"p{2.5cm}" , "p{11cm}" )) %>%
-    print(comment = F, include.rownames = F, include.colnames =F,
-          caption.placement = 'top')
+    mutate(value = if_else(trimws(field) == "Equations" &
+                             file.exists(paste0(eq.dir, "/", value)),
+                           paste0("![equations](", eq.dir, "/", value, ")"),
+                           value))
+  tbl <- paste0( "\n", 
+                 "##Article ID ", i, " : _", Cite(zbib, zid, .opts = list(hyperlink = F )), "_",
+                 "\n", "**", zbib$title[[zid]], "**",
+                 "\n\n|  |  |\n",
+                 "|----------------|-------------------------------------------------------|\n")
+    for(j in 1:nrow(t0)) {
+      tbl <- with(t0[j,], 
+                  paste0(tbl,
+                         "|", field, "|", value, "|\n") )
+    }
+  tbl <- paste0(tbl, "\n\n")
+  cat(tbl, sep="")
 }
 
 ```
 
-
+\clearpage  
 # References
 ```{r results='asis', echo=FALSE}
 PrintBibliography(zbib)         # Should print ONLY the 'cited' refs
+
+# rmarkdown::render("AnalysisOfTaperFunctionsStrutures_BasicTable.Rmd")
 ```

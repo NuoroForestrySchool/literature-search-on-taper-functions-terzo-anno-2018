@@ -1,0 +1,121 @@
+---
+title: "Scientific papers on 'Taper functions'"
+author: "prof. Roberto Scotti ^[NuoroForestrySchool - scotti@uniss.it]"
+date: "`r format(Sys.time(), '%d %b %Y')`"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: true
+    citation_package: natbib
+header-includes:
+- \usepackage[utf8]{inputenc}
+- \usepackage{fontspec}
+- \usepackage{array}
+- \usepackage{hyperref}
+- \usepackage[labelformat=empty]{caption}
+---
+
+NOTA: lavoro non finito!
+con _BasicTable, ottengo più o meno quello che voglio, manca sopratutto la capacità di tenere ogni scheda su una stessa pagina.
+ho provato a mescolare LaTeX con markdown (inserendo /begni e /end {minipage}) ma non sono riuscito, produce stringhe che bloccano la conversione in TeX
+di qui il tentativo di procedere via _LatexTable
+che però si è arenato sul problema della errata interpretazione della codifica dei caratteri presenti nella bibliografia (almeno credo sia quello il problema)
+
+
+```{r setup, include = FALSE, cache = FALSE}
+#library(rmarkdown)
+library(RefManageR)
+BibOptions(cite.style = "authoryear", bib.style = "authoryear",
+           no.print.fields = c("url"), check.entries = FALSE, 
+           style = "markdown")
+# zbib <- ReadZotero(group = "130380", .params = list(collection = "MYKE5653"), temp.file = "Zotero.bib", delete.file = F)
+zbib <- ReadBib("Zotero.bib")
+zbib <- ReadBib("Elementi_UTF8-senzaBOM.bib")
+
+
+```
+   
+```{r open DBs, echo=FALSE, results='hide', message=FALSE}
+# https://docs.google.com/spreadsheets/d/1Z6LpZgBogxYrTimiBjFcCMam7gp8-YNeH2sdAiNf8i4/edit#gid=0 
+library(tidyverse)
+library(googlesheets)
+suppressMessages(library(dplyr))
+sbib <- 
+  "https://docs.google.com/spreadsheets/d/1R-2vIdEAi1Kc6qo0hriMFIHZ8QeJSu-mPJDHJsecLDI/edit#gid=948369352" %>% 
+  extract_key_from_url() %>%
+  gs_key() %>%
+  gs_read(ws = "Analysis") %>%
+  arrange(ArticleID, line)
+
+```
+
+# Introduction
+
+## 2018 Forest Inventory course - First results of the collective assignement  
+
+Students, as homework, were asked to search for scientific papers presenting 'taper functions' and to compile a collective Rmarkdown document shared using GIT.  
+Rearranging their work, this document lists their findings.  
+
+# Analysed articles
+\renewcommand{\arraystretch}{2}
+
+```{r results='asis', echo=FALSE}
+
+eq.dir <- "Equations"
+nart <- length(unique(sbib$ArticleID))
+
+
+sbib <- sbib %>%
+  mutate(value = 
+           case_when(
+             trimws(field) == "Equations" & file.exists(paste0(eq.dir, "/", value)) ~
+               paste0("\\includegraphics[width=0.8\\textwidth]{", eq.dir, "/", value, "}"),
+             trimws(field) == "Base.URL" ~
+               paste0("\\url{", value, "}"),
+             trimws(field) == "Zotero.ID" ~
+               value,
+             TRUE ~ 
+               knitr:::escape_latex(value)
+           )
+  )
+
+for(i in 1:nart) {
+# for(i in 2) {
+  t0 <- sbib %>%
+    filter(ArticleID == i) %>%
+    select(field, value)
+  zid <- t0 %>% filter(field == "Zotero.ID") %>% select(value)%>% as.character()
+  t0 <- t0 %>%
+    filter(!field %in% 
+             c("## ArticleID", "Zotero.ID"))
+  cap <- paste0("Article ID ", i, " : \\textit{", Cite(zbib, zid, .opts = list(hyperlink = F )), "}\\\\"
+#                , " \\textbf{", zbib$title[[zid]], "}"
+                )
+  lsep <- "\n"
+  tbl <- paste( sep = lsep,
+                "\\begin{table}",
+                "\\caption{", cap, "}",
+                "\\begin{tabular}{p{0.2\\textwidth} p{0.8\\textwidth}}",
+                "\\hline")
+    for(j in 1:nrow(t0)) {
+      tbl <- with(t0[j,], 
+                  paste0(sep = lsep, tbl,
+                         lsep, paste0(sep="", field, " & ", value, " \\\\"), 
+                         " \\hline") )
+    }
+  tbl <- paste0(sep = lsep, tbl, lsep,
+                "\\end{tabular}",
+                "\\end{table}",
+                "\n\n")
+  cat(tbl, lsep, sep="")
+}
+
+```
+\clearpage  
+
+# References
+```{r results='asis', echo=FALSE}
+PrintBibliography(zbib)         # Should print ONLY the 'cited' refs
+
+# rmarkdown::render("AnalysisOfTaperFunctionsStrutures_BasicTable.Rmd")
+```

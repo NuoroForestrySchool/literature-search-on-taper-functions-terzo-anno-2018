@@ -1,0 +1,149 @@
+---
+title: "Latex Table in R Markdown"
+output:
+  pdf_document:
+    latex_engine: xelatex
+    keep_tex: true
+header-includes:
+- \usepackage{array}
+- \usepackage{fontspec}
+- \usepackage{hyperref}
+- \usepackage[labelformat=empty]{caption}
+---
+
+first
+\newline
+
+\renewcommand{\arraystretch}{2}
+
+
+
+\begin{table}
+\caption{
+Article ID 1 : \textit{(Scolforo, McTague, Raimundo, et al., 2018)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Comparison of taper functions applied to eucalypts of varying genetics in Brazil: Application and evaluation of the penalized mixed spline approach \\ \hline
+Authors.student & Scolforo, H.F., McTague, J.P., Raimundo, M.R., Weiskittel, A., Carrero, O., Scolforo, J.R.S. \\ \hline
+Year.student & 2017 \\ \hline
+Species & Eucalypts \\ \hline
+Base.URL & \url{http://www.nrcresearchpress.com/doi/10.1139/cjfr-2017-0366#.W2Sb6Lhx02w} \\ \hline
+Paper.local.file & NA \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
+\begin{table}
+\caption{
+Article ID 3 : \textit{(Tang, Pérez-Cruzado, Fehrmann, et al., 2016)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Development of a Compatible Taper Function and Stand-Level Merchantable Volume Model for Chinese Fir Plantations \\ \hline
+Authors.student & Xiaolu Tang,César Pérez-Cruzado,Lutz Fehrmann,Juan Gabriel Álvarez-González,Yuanchang Lu,and Christoph Kleinn, \\ \hline
+Year.student & 2016 \\ \hline
+Species & Cunninghamia lanceolata [Lamb.] Hook \\ \hline
+Base.URL & \url{https://www.ncbi.nlm.nih.gov/pubmed/26799399} \\ \hline
+Paper.local.file & pone.0147610.pdf \\ \hline
+Equations & \includegraphics[width=0.8\textwidth]{Equations/2016TangEtAl.png} \\ \hline
+\end{tabular}\end{table}
+
+\begin{table}
+\caption{
+Article ID 8 : \textit{(Arnoni Costa, Guimarães Finger, Schneider, et al., 2016)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Taper function and timber assortments for Araucaria angustifolia \\ \hline
+Authors.student & Emanuel Arnoni Costa, César Augusto Guimarães Finger, Paulo Renato Schneider, André Felipe Hess \\ \hline
+Year.student & 2016 \\ \hline
+Species & Araucaria angustifolia \\ \hline
+Base.URL & \url{http://www.redalyc.org/articulo.oa?id=53446151016} \\ \hline
+Paper.local.file & 53446151016.pdf \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
+\begin{table}
+\caption{
+Article ID 10 : \textit{(Arias-Rodil, Castedo-Dorado, Cámara-Obregón, et al., 2015)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Fitting and Calibrating a Multilevel Mixed-Effects Stem Taper Model for Maritime Pine in NW Spain \\ \hline
+Authors.student & Manuel Arias-Rodil, Fernando Castedo-Dorado, Asunción Cámara-Obregón, Ulises Diéguez-Aranda \\ \hline
+Year.student & 2015 \\ \hline
+Species & Pinus pinaster Ait. \\ \hline
+Base.URL & \url{http://europepmc.org/backend/ptpmcrender.fcgi?accid=PMC4668033&blobtype=pdf} \\ \hline
+Paper.local.file & pone.0143521.pdf \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
+\begin{table}
+\caption{
+Article ID 11 : \textit{(Rodríguez, Lizarralde, and Bravo, 2015)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Comparison of stem taper equations for eight major tree species in the Spanish Plateau \\ \hline
+Authors.student & Francisco Rodríguez1, Iñigo Lizarralde1 and Felipe Bravo \\ \hline
+Year.student & 2015 \\ \hline
+Species & Various \\ \hline
+Base.URL & \url{http://revistas.inia.es/index.php/fs/article/view/6229} \\ \hline
+Paper.local.file & 6229-27194-1-PB.pdf \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
+\begin{table}
+\caption{
+Article ID 12 : \textit{(Návar, Rodríguez-Flores, and Domínguez-Calleros, 2013)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Taper functions and merchantable timber for temperate forests of northern Mexico \\ \hline
+Authors.student & J. Návar, F. de Jesús Rodríguez-Flores, P.A. Domínguez-Calleros \\ \hline
+Year.student & 2013 \\ \hline
+Species & P.pseudostrobus, P. hartwegii, P. cooperi, P. ayacahuite, Q. spp, P. durangensis, P. leiophylla, P. teocote, P. arizonica, Quercus spp \\ \hline
+Base.URL & \url{http://www.editurasilvica.ro/afr/56/1/navar.pdf} \\ \hline
+Paper.local.file & navar.pdf \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
+\begin{table}
+\caption{
+Article ID 13 : \textit{(Ã–zÃ§elik and Dirican, 2017)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Individual taper models for natural cedar and Taurus fir mixed stands of Bucak Region, Turkey \\ \hline
+Authors.student & Ramazan Özçelik, Osman Dirican \\ \hline
+Year.student & 2017 \\ \hline
+Species & Cedrus libani A. Rich., Abies cilicica Carr. \\ \hline
+Base.URL & \url{http://dergipark.gov.tr/download/article-file/330518} \\ \hline
+Paper.local.file & 10.17099-jffiu.290845-330518.pdf \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
+
+\begin{table}
+\caption{
+Article ID 14 : \textit{(Machado, Urbano, and Conceiç{ã}o, 2005)}\\
+}
+\begin{tabular}{p{0.2\textwidth} p{0.8\textwidth}}
+\hline
+Student & NA \\ \hline
+Title.student & Comparação de Métodos de Estimativa de Volume para Pinus oocarpa em Diferentes Idades e Diferentes Regimes de Desbastes \\ \hline
+Authors.student & Sebastião do Amaral Machado, Edilson Urbano, Marcio Barbosa da Conceição \\ \hline
+Year.student & 2005 \\ \hline
+Species & Pinus oocarpa \\ \hline
+Base.URL & \url{https://pfb.cnpf.embrapa.br/pfb/index.php/pfb/article/view/242/193} \\ \hline
+Paper.local.file & 242-1027-1-PB.pdf \\ \hline
+Equations & NA \\ \hline
+\end{tabular}\end{table}
+
