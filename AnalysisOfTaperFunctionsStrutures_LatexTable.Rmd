@@ -8,7 +8,6 @@ output:
     keep_tex: true
     citation_package: natbib
 header-includes:
-- \usepackage[utf8]{inputenc}
 - \usepackage{fontspec}
 - \usepackage{array}
 - \usepackage{hyperref}
