@@ -25,6 +25,8 @@ zbib <- ReadZotero(group = "130380",
 ```
    
 ```{r open DBs, echo=FALSE, results='hide', message=FALSE}
+# Reference folder: prof.roberto.scotti> ...> 2018 > Taper_StudentsSearch2018
+
 # https://docs.google.com/spreadsheets/d/1Z6LpZgBogxYrTimiBjFcCMam7gp8-YNeH2sdAiNf8i4/edit#gid=0 
 library(tidyverse)
 library(googlesheets)
